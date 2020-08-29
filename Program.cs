@@ -14,15 +14,25 @@ namespace NumGuessingGame
         {
             Random num = new Random();
 
-            int wNum = num.Next(0, 100);
+            Console.Write("Please input a starting number: ");
+            string first = Console.ReadLine();
+            int fir = int.Parse(first);
+
+
+            Console.Write("Please input an ending number: ");
+            string last = Console.ReadLine();
+            int las = int.Parse(last);
+
+
+            int wNum = num.Next(fir, las);
 
             bool win = false;
 
-            int count = 0;
+            int count = 1;
 
             while (win == false)
             {
-                Console.Write("Guess a number between 0 and 100: ");
+                Console.Write("Guess a number between " + fir + " and " + las + ": ");
                 
                 string num1 = Console.ReadLine();
 
@@ -38,9 +48,7 @@ namespace NumGuessingGame
                 }
                 else if (i == wNum)
                 {
-                    Console.Write("You Win!! It took ");
-                    Console.Write(count);
-                    Console.Write(" tries!\n");
+                    Console.Write("You Win!! It took " + count + " tries!\n");
                     win = true;
                 }
                 count += 1;
